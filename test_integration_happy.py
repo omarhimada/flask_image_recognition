@@ -3,6 +3,11 @@ test_integration_happy.py
 """
 from io import BytesIO
 
+def test_home_page_loads_successfully(client):
+    """Test that the homepage returns a 200 status code"""
+    response = client.get("/")
+    assert response.status_code == 200
+
 def test_successful_prediction(client):
     """Test the successful image upload and prediction."""
     # Create a mock image file with minimal valid content
